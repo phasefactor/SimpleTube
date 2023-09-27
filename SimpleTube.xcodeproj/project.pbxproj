@@ -13,7 +13,6 @@
 		CED47E0F2AC1F1B0005A5076 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */; };
 		CED47E162AC1F1E4005A5076 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E152AC1F1E4005A5076 /* WebView.swift */; };
 		CED47E192AC1F7E1005A5076 /* NavDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E182AC1F7E1005A5076 /* NavDelegate.swift */; };
-		CED47E1B2AC1F8AE005A5076 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E1A2AC1F8AE005A5076 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CED47E152AC1F1E4005A5076 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		CED47E182AC1F7E1005A5076 /* NavDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDelegate.swift; sourceTree = "<group>"; };
-		CED47E1A2AC1F8AE005A5076 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 			children = (
 				CED47E082AC1F1AF005A5076 /* ContentView.swift */,
 				CED47E152AC1F1E4005A5076 /* WebView.swift */,
-				CED47E1A2AC1F8AE005A5076 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,7 +154,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED47E192AC1F7E1005A5076 /* NavDelegate.swift in Sources */,
-				CED47E1B2AC1F8AE005A5076 /* TestView.swift in Sources */,
 				CED47E162AC1F1E4005A5076 /* WebView.swift in Sources */,
 				CED47E092AC1F1AF005A5076 /* ContentView.swift in Sources */,
 				CED47E072AC1F1AF005A5076 /* SimpleTubeApp.swift in Sources */,
@@ -290,6 +286,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SimpleTube/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -326,6 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SimpleTube/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

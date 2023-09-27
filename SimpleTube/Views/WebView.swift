@@ -2,29 +2,30 @@
 //  WebView.swift
 //  SimpleTube
 //
-//  Created by Dustin on 9/25/23.
+//  Created by phasefactor on 9/25/23.
 //
 
 import SwiftUI
 import WebKit
- 
+
+
 struct WebView: UIViewRepresentable {
-    var url: URL? = nil
-    var html: String = ""
+    @State var navDel = WebViewNavigationDelegate()
     
-    init(url: URL? = nil, html: String) {
-        self.url = url
-        self.html = html
-    }
+    var url: URL? = nil
+    var html: String? = ""
+    
  
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         
+        webView.navigationDelegate = navDel
         
         webView.isInspectable = true
         
         return webView
     }
+    
  
     func updateUIView(_ webView: WKWebView, context: Context) {
         if url != nil {
@@ -34,7 +35,7 @@ struct WebView: UIViewRepresentable {
             
             webView.load(request)
         } else {
-            webView.loadHTMLString(html, baseURL: nil)
+            webView.loadHTMLString(html ?? "", baseURL: nil)
         }
     }
 }

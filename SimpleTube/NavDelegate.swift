@@ -2,21 +2,28 @@
 //  NavDelegate.swift
 //  SimpleTube
 //
-//  Created by Dustin on 9/25/23.
+//  Created by phasefactor on 9/25/23.
 //
 
 import Foundation
 import WebKit
 
-class NavDelegate: NSObject, WKNavigationDelegate {
-    var parent: WebView
+class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-    init(_ parent: WebView) {
-        self.parent = parent
+        if let host = navigationAction.request.url?.host {
+            if host.contains("youtube.com") {
+                decisionHandler(.allow)
+                return
+            }
+        }
+        // decisionHandler(.allow)
+        decisionHandler(.cancel)
     }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
 
-    // Delegate methods go here
-    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        // alert functionality goes here
+        
+         decisionHandler(.allow)
     }
 }

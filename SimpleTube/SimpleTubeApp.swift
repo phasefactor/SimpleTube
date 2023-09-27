@@ -2,7 +2,7 @@
 //  SimpleTubeApp.swift
 //  SimpleTube
 //
-//  Created by Dustin on 9/25/23.
+//  Created by phasefactor on 9/25/23.
 //
 
 import SwiftUI
