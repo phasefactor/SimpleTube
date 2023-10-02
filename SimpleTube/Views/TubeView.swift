@@ -14,9 +14,69 @@ struct TubeView: UIViewRepresentable {
     @State var navDel = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
-        // Needed for the auto-play of video previews to not instantly enter full-screen.
         let webConfiguration = WKWebViewConfiguration()
+        
+        // Needed for the auto-play of video previews to not instantly enter full-screen.
         webConfiguration.allowsInlineMediaPlayback = true
+        
+        // Setup a content controller so that we can inject JS to the WKWebView
+        let contentController = WKUserContentController()
+        
+        let source = """
+            var _XMLHttpRequest = XMLHttpRequest;
+        
+            XMLHttpRequest = function() {
+                var xhr = new _XMLHttpRequest();
+
+                var _open = xhr.open;
+        
+                xhr.open = function() {
+                    console.log("XMLHttpRequest for: " + arguments[1]);
+                    arguments[1] = "0.0.0.0";
+                    return _open.apply(this, arguments);
+                }
+
+               // return xhr;
+                // interestingly this does not break the site...
+                return null;
+            }
+        
+            document._createElement = document.createElement;
+        
+            document.createElement = function() {
+             //   console.log("createElement: " + arguments[0]);
+                
+                if (arguments[0].toLowerCase() == "iframe") {
+                    const i = document._createElement("iframe");
+        
+                    const handleLoad = () => console.log('loaded');
+                    i.addEventListener('load', handleLoad, true);
+                            
+                    const handleChange = () => console.log('changed');
+                    i.addEventListener('change', handleChange, true);
+        
+                    return i;
+                } else {
+                    return document._createElement(arguments[0]);
+                }
+            }
+                
+            console.log("1");
+            
+            addEventListener("DOMContentLoaded", (event) => {console.log("2");});
+        
+            // due to injectionTime = .atDocumentStart there is no document.body yet...
+            console.log(document.body);
+        """
+
+        let script = WKUserScript(source: source,
+                                  injectionTime: .atDocumentStart,
+                                  forMainFrameOnly: true)
+        
+        contentController.addUserScript(script)
+        
+        // Attach the content controller to the configuration
+        webConfiguration.userContentController = contentController
         
         //
         let webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -40,6 +100,10 @@ struct TubeView: UIViewRepresentable {
         let request = URLRequest(url: URL(string: "https://www.youtube.com")!)
         
         webView.load(request)
+        
+        
+        
+        webView.allowsBackForwardNavigationGestures = true
     }
     
     
