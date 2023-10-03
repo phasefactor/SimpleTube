@@ -7,4 +7,4 @@ YouTube still makes dozens of network requests to analytics/metrics APIs, etc.  
 
 All of YouTube's major functionality seems to still work.  
 
-I may update with swiping left/right for back/forward navigation. 
+Swiping to the left and right will navigate forward and backward. 
