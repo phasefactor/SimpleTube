@@ -23,43 +23,8 @@ struct TubeView: UIViewRepresentable {
         let contentController = WKUserContentController()
         
         let source = """
-            var _XMLHttpRequest = XMLHttpRequest;
-        
-            XMLHttpRequest = function() {
-                var xhr = new _XMLHttpRequest();
-
-                var _open = xhr.open;
-        
-                xhr.open = function() {
-                    console.log("XMLHttpRequest for: " + arguments[1]);
-                    arguments[1] = "0.0.0.0";
-                    return _open.apply(this, arguments);
-                }
-
-               // return xhr;
-                // interestingly this does not break the site...
-                return null;
-            }
-        
-            document._createElement = document.createElement;
-        
-            document.createElement = function() {
-             //   console.log("createElement: " + arguments[0]);
-                
-                if (arguments[0].toLowerCase() == "iframe") {
-                    const i = document._createElement("iframe");
-        
-                    const handleLoad = () => console.log('loaded');
-                    i.addEventListener('load', handleLoad, true);
-                            
-                    const handleChange = () => console.log('changed');
-                    i.addEventListener('change', handleChange, true);
-        
-                    return i;
-                } else {
-                    return document._createElement(arguments[0]);
-                }
-            }
+            // Effectively turns off all the background requests; null also works.
+            XMLHttpRequest = function () { return new Object(); };
                 
             addEventListener("DOMContentLoaded", (e) => {
                 document.body.querySelectorAll("script").forEach((s) => {
@@ -72,7 +37,7 @@ struct TubeView: UIViewRepresentable {
                 });
             });
             
-            // fires after DOMContentLoaded
+            // fires after DOMContentLoaded, pages should be fully loaded
             addEventListener("load", (e) => {
                 document.body.querySelectorAll("script").forEach((s) => {
         
@@ -82,6 +47,11 @@ struct TubeView: UIViewRepresentable {
                         s.remove();
                     }
                 });
+        
+                // removes "open in app" button
+                var styleSheet = document.createElement("style")
+                styleSheet.innerText = "div.mobile-topbar-header-content > ytm-button-renderer { display: none; }";
+                document.head.appendChild(styleSheet)
             });
         
         """

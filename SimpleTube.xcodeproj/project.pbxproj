@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE05AF2B2ACC58BC005D16BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE05AF2A2ACC58BC005D16BF /* README.md */; };
 		CED47E072AC1F1AF005A5076 /* SimpleTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E062AC1F1AF005A5076 /* SimpleTubeApp.swift */; };
 		CED47E092AC1F1AF005A5076 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E082AC1F1AF005A5076 /* ContentView.swift */; };
 		CED47E0B2AC1F1B0005A5076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED47E0A2AC1F1B0005A5076 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE05AF2A2ACC58BC005D16BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CED47E032AC1F1AF005A5076 /* SimpleTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED47E062AC1F1AF005A5076 /* SimpleTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTubeApp.swift; sourceTree = "<group>"; };
 		CED47E082AC1F1AF005A5076 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 		CED47DFA2AC1F1AF005A5076 = {
 			isa = PBXGroup;
 			children = (
+				CE05AF2A2ACC58BC005D16BF /* README.md */,
 				CED47E052AC1F1AF005A5076 /* SimpleTube */,
 				CED47E042AC1F1AF005A5076 /* Products */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE05AF2B2ACC58BC005D16BF /* README.md in Resources */,
 				CED47E0F2AC1F1B0005A5076 /* Preview Assets.xcassets in Resources */,
 				CED47E0B2AC1F1B0005A5076 /* Assets.xcassets in Resources */,
 			);
