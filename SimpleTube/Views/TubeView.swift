@@ -61,12 +61,29 @@ struct TubeView: UIViewRepresentable {
                 }
             }
                 
-            console.log("1");
-            
-            addEventListener("DOMContentLoaded", (event) => {console.log("2");});
+            addEventListener("DOMContentLoaded", (e) => {
+                document.body.querySelectorAll("script").forEach((s) => {
         
-            // due to injectionTime = .atDocumentStart there is no document.body yet...
-            console.log(document.body);
+                    // might be pointless.
+                    // some number of these scripts will have already run
+                    if (!s.src || !s.src.includes("youtube.com")) {
+                        s.remove();
+                    }
+                });
+            });
+            
+            // fires after DOMContentLoaded
+            addEventListener("load", (e) => {
+                document.body.querySelectorAll("script").forEach((s) => {
+        
+                    // might be pointless.
+                    // some number of these scripts will have already run
+                    if (!s.src || !s.src.includes("youtube.com")) {
+                        s.remove();
+                    }
+                });
+            });
+        
         """
 
         let script = WKUserScript(source: source,
