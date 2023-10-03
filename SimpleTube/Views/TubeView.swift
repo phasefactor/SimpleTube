@@ -63,7 +63,7 @@ struct TubeView: UIViewRepresentable {
                 document.body.addEventListener('touchend', function (event) {
                     touchEnd = event.changedTouches[0].screenX;
                     
-                    if (Math.abs(touchStart-touchEnd) > 50) {
+                    if (Math.abs(touchStart - touchEnd) > 250) {
                         if (touchStart > touchEnd) {
                             // left
                             window.history.forward()
