@@ -13,6 +13,7 @@
 		CED47E0B2AC1F1B0005A5076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED47E0A2AC1F1B0005A5076 /* Assets.xcassets */; };
 		CED47E0F2AC1F1B0005A5076 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */; };
 		CED47E162AC1F1E4005A5076 /* TubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E152AC1F1E4005A5076 /* TubeView.swift */; };
+		CEDDBF0D2AD09572003ABEC6 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = CEDDBF0C2AD09572003ABEC6 /* script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CED47E0C2AC1F1B0005A5076 /* SimpleTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleTube.entitlements; sourceTree = "<group>"; };
 		CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CED47E152AC1F1E4005A5076 /* TubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeView.swift; sourceTree = "<group>"; };
+		CEDDBF0C2AD09572003ABEC6 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				CED47E062AC1F1AF005A5076 /* SimpleTubeApp.swift */,
-				CED47E172AC1F6BB005A5076 /* Views */,
+				CED47E082AC1F1AF005A5076 /* ContentView.swift */,
+				CED47E152AC1F1E4005A5076 /* TubeView.swift */,
+				CEDDBF0C2AD09572003ABEC6 /* script.js */,
 				CED47E0A2AC1F1B0005A5076 /* Assets.xcassets */,
 				CED47E0C2AC1F1B0005A5076 /* SimpleTube.entitlements */,
 				CED47E0D2AC1F1B0005A5076 /* Preview Content */,
@@ -72,15 +76,6 @@
 				CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		CED47E172AC1F6BB005A5076 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CED47E082AC1F1AF005A5076 /* ContentView.swift */,
-				CED47E152AC1F1E4005A5076 /* TubeView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE05AF2B2ACC58BC005D16BF /* README.md in Resources */,
+				CEDDBF0D2AD09572003ABEC6 /* script.js in Resources */,
 				CED47E0F2AC1F1B0005A5076 /* Preview Assets.xcassets in Resources */,
 				CED47E0B2AC1F1B0005A5076 /* Assets.xcassets in Resources */,
 			);
