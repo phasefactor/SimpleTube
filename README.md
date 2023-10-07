@@ -1,9 +1,7 @@
 # SimpleTube
 Simple ad-free YouTube client.
 
-All of YouTube's major functionality seems to still work.  Known issues:
-
-- YouTube's redirect links do not function.
+All of YouTube's major functionality seems to work.  Known issues:
 - Logging in works, but logging out seems to be broken.
 
 ---
