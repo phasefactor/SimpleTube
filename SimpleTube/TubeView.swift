@@ -39,57 +39,17 @@ struct TubeView: UIViewRepresentable {
         // add block rules as described:
         // https://developer.apple.com/documentation/safariservices/creating_a_content_blocker
         
-        // list of domains that imgur loads nonsense from
-        let urlList = ["doubleclick.net", "googlesyndication.com", "googleapis.com"]
+        // list of domains that YouTube loads nonsense from
+        let urlList = ["doubleclick.net", "googlesyndication.com", "googleapis.com", "youtube.com/api/stats/", "youtube.com/generate_204", "play.google.com/log", "youtube.com/ptracking"]
         
         // build our JSON block list from scratch
         var jsonString = "["
         
         for url in urlList {
-            // running split twice is gross, but the list of urls is very short
-            jsonString += "{\"trigger\":{\"url-filter\":\".*\(url.split(separator:".")[0])\\\\.\(url.split(separator:".")[1]).*\"},\"action\":{\"type\":\"block\"}},"
+            jsonString += "{\"trigger\":{\"url-filter\":\".*\(url.replacingOccurrences(of: ".", with: "\\\\.")).*\"},\"action\":{\"type\":\"block\"}},"
         }
         
-        jsonString += """
-        {
-            "trigger": {
-                "url-filter": ".*youtube.com/api/stats/.*"
-            },
-            "action" : {
-                "type": "block"
-            }
-        },
-        {
-            "trigger": {
-                "url-filter": ".*youtube.com/generate_204"
-            },
-            "action" : {
-                "type": "block"
-            }
-        },
-        
-        {
-            "trigger": {
-                "url-filter": ".*play.google.com/log.*"
-            },
-            "action" : {
-                "type": "block"
-            }
-        },
-        
-        
-        {
-            "trigger": {
-                "url-filter": ".*youtube.com/ptracking.*"
-            },
-            "action" : {
-                "type": "block"
-            }
-        },
-
-        """
-        
-        // css rule to hide any empty ad spots and the Get App button
+        // css rule to hide the Get App button
         jsonString += "{\"trigger\":{\"url-filter\":\".*\"},\"action\":{\"type\":\"css-display-none\",\"selector\":\".open-app-button\"}}"
         
         jsonString += "]"
