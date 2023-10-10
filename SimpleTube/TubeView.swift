@@ -13,9 +13,6 @@ struct TubeView: UIViewRepresentable {
     let navDel = WebViewNavigationDelegate()
     
     func makeUIView(context: Context) -> WKWebView {
-        
-        let _ = print("running makeUIView")
-        
         let config  = WKWebViewConfiguration()
         let control = WKUserContentController()
 
@@ -39,8 +36,14 @@ struct TubeView: UIViewRepresentable {
         // add block rules as described:
         // https://developer.apple.com/documentation/safariservices/creating_a_content_blocker
         
-        // list of domains that YouTube loads nonsense from
-        let urlList = ["doubleclick.net", "googlesyndication.com", "googleapis.com", "youtube.com/api/stats/", "youtube.com/generate_204", "play.google.com/log", "youtube.com/ptracking"]
+        // list of domains/URLs that YouTube sends/loads nonsense to/from
+        let urlList = ["doubleclick.net", "googlesyndication.com", "googleapis.com", "youtube.com/api/stats/", "youtube.com/generate_204", "play.google.com/log", "youtube.com/ptracking", "m.youtube.com/static/r/.*/scheduler.js"]
+        
+        // Still loading scripts from:
+        // - m.youtube.com/s/_/ytmweb/
+        // - www.google.com/js/th/
+        // - m.youtube.com/s/player/
+        // - m.youtube.com/static/r/     (search suggestions)
         
         // build our JSON block list from scratch
         var jsonString = "["
@@ -49,7 +52,7 @@ struct TubeView: UIViewRepresentable {
             jsonString += "{\"trigger\":{\"url-filter\":\".*\(url.replacingOccurrences(of: ".", with: "\\\\.")).*\"},\"action\":{\"type\":\"block\"}},"
         }
         
-        // css rule to hide the Get App button
+        // CSS rule to hide the "Get App" button
         jsonString += "{\"trigger\":{\"url-filter\":\".*\"},\"action\":{\"type\":\"css-display-none\",\"selector\":\".open-app-button\"}}"
         
         jsonString += "]"
@@ -83,8 +86,7 @@ struct TubeView: UIViewRepresentable {
     
  
     func updateUIView(_ webView: WKWebView, context: Context) {
-        let request = URLRequest(url: URL(string: "https://m.youtube.com")!)
-        let _ = print("running updateUIView")
+        let request = URLRequest(url: URL(string: "https://m.youtube.com/?persist_app=1&app=m")!)
         
         webView.load(request)
     }
