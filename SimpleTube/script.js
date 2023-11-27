@@ -45,11 +45,16 @@
     
     // Handle swipes left and right to go back and forward
     document.body.addEventListener('touchstart', (event) => {
-        touchStart = event.changedTouches[0].screenX;
-        
-        // only if we start near the edge of the screen
-        if (touchStart < 25 || touchStart > (window.screen.width - 25)) {
-            swiping = true;
+        if (!event.target.className.includes("progress-bar-playhead-dot") &&
+            !event.target.className.includes("reel-shelf-items") &&
+            !event.target.className.includes("reel-shelf-header") &&
+            !event.target.className.includes("reel-item-metadata") ) {
+            touchStart = event.changedTouches[0].screenX;
+            
+            // only if we start near the edge of the screen
+            if (touchStart < 25 || touchStart > (window.screen.width - 25)) {
+                swiping = true;
+            }
         }
     });
     
@@ -71,18 +76,20 @@
     });
 
     document.body.addEventListener('touchend', (event) => {
-        touchEnd = event.changedTouches[0].screenX;
-        
-        div.style.width = "0px";
-        swiping = false;
-        
-        if (Math.abs(touchStart - touchEnd) > 200) {
-            if (touchStart > touchEnd) {
-                // left
-                window.history.forward()
-            } else {
-                // right
-                window.history.back()
+        if (swiping) {
+            touchEnd = event.changedTouches[0].screenX;
+            
+            div.style.width = "0px";
+            swiping = false;
+            
+            if (Math.abs(touchStart - touchEnd) > 200) {
+                if (touchStart > touchEnd) {
+                    // left
+                    window.history.forward()
+                } else {
+                    // right
+                    window.history.back()
+                }
             }
         }
     });

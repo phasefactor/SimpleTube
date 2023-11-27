@@ -37,7 +37,7 @@ struct TubeView: UIViewRepresentable {
         // https://developer.apple.com/documentation/safariservices/creating_a_content_blocker
         
         // list of domains/URLs that YouTube sends/loads nonsense to/from
-        let urlList = ["doubleclick.net", "googlesyndication.com", "googleapis.com", "youtube.com/api/stats/", "youtube.com/generate_204", "play.google.com/log", "youtube.com/ptracking", "m.youtube.com/static/r/.*/scheduler.js"]
+        let urlList = ["doubleclick.net", "googlesyndication.com", "googleapis.com", "youtube.com/api/stats/", "youtube.com/generate_204", "play.google.com/log", "youtube.com/ptracking"]
         
         // Still loading scripts from:
         // - m.youtube.com/s/_/ytmweb/
@@ -53,7 +53,7 @@ struct TubeView: UIViewRepresentable {
         }
         
         // CSS rule to hide the "Get App" button
-        jsonString += "{\"trigger\":{\"url-filter\":\".*\"},\"action\":{\"type\":\"css-display-none\",\"selector\":\".open-app-button\"}}"
+        jsonString += "{\"trigger\":{\"url-filter\":\".*\"},\"action\":{\"type\":\"css-display-none\",\"selector\":\".open-app-button,ytm-statement-banner-renderer\"}}"
         
         jsonString += "]"
         
