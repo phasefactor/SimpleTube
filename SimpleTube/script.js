@@ -52,7 +52,8 @@
             touchStart = event.changedTouches[0].screenX;
             
             // only if we start near the edge of the screen
-            if (touchStart < 25 || touchStart > (window.screen.width - 25)) {
+            if (touchStart < (window.screen.width * 0.1) ||
+                touchStart > (window.screen.width * 0.9)) {
                 swiping = true;
             }
         }
