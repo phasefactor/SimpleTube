@@ -49,11 +49,12 @@
             !event.target.className.includes("reel-shelf-items") &&
             !event.target.className.includes("reel-shelf-header") &&
             !event.target.className.includes("reel-item-metadata") ) {
+            
             touchStart = event.changedTouches[0].screenX;
             
             // only if we start near the edge of the screen
-            if (touchStart < (window.screen.width * 0.1) ||
-                touchStart > (window.screen.width * 0.9)) {
+            if (touchStart < (window.innerWidth * 0.1) ||
+                touchStart > (window.innerWidth * 0.9)) {
                 swiping = true;
             }
         }
@@ -83,7 +84,7 @@
             div.style.width = "0px";
             swiping = false;
             
-            if (Math.abs(touchStart - touchEnd) > 200) {
+            if (Math.abs(touchStart - touchEnd) > (window.innerWidth * 0.4)) {
                 if (touchStart > touchEnd) {
                     // left
                     window.history.forward()
