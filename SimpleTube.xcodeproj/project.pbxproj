@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		CE05AF2B2ACC58BC005D16BF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CE05AF2A2ACC58BC005D16BF /* README.md */; };
+		CE4A285D2B2014800037DB4C /* script1.js in Resources */ = {isa = PBXBuildFile; fileRef = CE4A285B2B2014800037DB4C /* script1.js */; };
+		CE4A285E2B2014800037DB4C /* script2.js in Resources */ = {isa = PBXBuildFile; fileRef = CE4A285C2B2014800037DB4C /* script2.js */; };
 		CED47E072AC1F1AF005A5076 /* SimpleTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E062AC1F1AF005A5076 /* SimpleTubeApp.swift */; };
 		CED47E092AC1F1AF005A5076 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E082AC1F1AF005A5076 /* ContentView.swift */; };
 		CED47E0B2AC1F1B0005A5076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED47E0A2AC1F1B0005A5076 /* Assets.xcassets */; };
 		CED47E0F2AC1F1B0005A5076 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */; };
 		CED47E162AC1F1E4005A5076 /* TubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED47E152AC1F1E4005A5076 /* TubeView.swift */; };
-		CEDDBF0D2AD09572003ABEC6 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = CEDDBF0C2AD09572003ABEC6 /* script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE05AF2A2ACC58BC005D16BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CE4A285B2B2014800037DB4C /* script1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script1.js; sourceTree = "<group>"; };
+		CE4A285C2B2014800037DB4C /* script2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script2.js; sourceTree = "<group>"; };
+		CE4A285F2B20152C0037DB4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CED47E032AC1F1AF005A5076 /* SimpleTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED47E062AC1F1AF005A5076 /* SimpleTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTubeApp.swift; sourceTree = "<group>"; };
 		CED47E082AC1F1AF005A5076 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,7 +29,6 @@
 		CED47E0C2AC1F1B0005A5076 /* SimpleTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleTube.entitlements; sourceTree = "<group>"; };
 		CED47E0E2AC1F1B0005A5076 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CED47E152AC1F1E4005A5076 /* TubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeView.swift; sourceTree = "<group>"; };
-		CEDDBF0C2AD09572003ABEC6 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +62,12 @@
 		CED47E052AC1F1AF005A5076 /* SimpleTube */ = {
 			isa = PBXGroup;
 			children = (
+				CE4A285F2B20152C0037DB4C /* Info.plist */,
+				CE4A285B2B2014800037DB4C /* script1.js */,
+				CE4A285C2B2014800037DB4C /* script2.js */,
 				CED47E062AC1F1AF005A5076 /* SimpleTubeApp.swift */,
 				CED47E082AC1F1AF005A5076 /* ContentView.swift */,
 				CED47E152AC1F1E4005A5076 /* TubeView.swift */,
-				CEDDBF0C2AD09572003ABEC6 /* script.js */,
 				CED47E0A2AC1F1B0005A5076 /* Assets.xcassets */,
 				CED47E0C2AC1F1B0005A5076 /* SimpleTube.entitlements */,
 				CED47E0D2AC1F1B0005A5076 /* Preview Content */,
@@ -136,8 +141,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4A285E2B2014800037DB4C /* script2.js in Resources */,
 				CE05AF2B2ACC58BC005D16BF /* README.md in Resources */,
-				CEDDBF0D2AD09572003ABEC6 /* script.js in Resources */,
+				CE4A285D2B2014800037DB4C /* script1.js in Resources */,
 				CED47E0F2AC1F1B0005A5076 /* Preview Assets.xcassets in Resources */,
 				CED47E0B2AC1F1B0005A5076 /* Assets.xcassets in Resources */,
 			);
@@ -285,6 +291,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SimpleTube/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -322,6 +329,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SimpleTube/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

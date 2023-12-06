@@ -21,17 +21,40 @@ struct TubeView: UIViewRepresentable {
         // Needed for the auto-play of video previews to not instantly enter full-screen.
         config.allowsInlineMediaPlayback = true
         
+        
+        // Inject scripts
         var source = "console.log('failed to load script.js');"
         
         do {
-            source = try String(contentsOf: Bundle.main.url(forResource: "script", withExtension: "js")!)
+            source = try String(contentsOf: Bundle.main.url(forResource: "script1", withExtension: "js")!)
         } catch {}
 
-        let script = WKUserScript(source: source,
+        var script = WKUserScript(source: source,
                                   injectionTime: .atDocumentEnd,
                                   forMainFrameOnly: true)
         
         control.addUserScript(script)
+        
+        
+        // Turn on Picture in Picture
+        config.allowsPictureInPictureMediaPlayback = true
+        
+        // Youtube uses an eventListener to kill PIP sessions. This will stop it.
+        do {
+            source = try String(contentsOf: Bundle.main.url(forResource: "script2", withExtension: "js")!)
+        } catch {}
+
+        // atDocumentStart to get in ahead of base.js
+        script = WKUserScript(source: source,
+                              injectionTime: .atDocumentStart,
+                              forMainFrameOnly: true)
+        
+        control.addUserScript(script)
+        
+        
+        // Might as well add AirPlay too
+        config.allowsAirPlayForMediaPlayback = true
+        
         
         // add block rules as described:
         // https://developer.apple.com/documentation/safariservices/creating_a_content_blocker
